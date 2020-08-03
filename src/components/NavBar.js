@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import media from '../media/media';
 
 const Nav = styled.div`
 height: 5vh;

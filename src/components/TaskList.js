@@ -4,7 +4,6 @@ import Task, { TaskDescription } from './Task';
 import { toggleCompleted, removeTask } from '../actions/index'
 import styled from 'styled-components';
 import { TaskHolder } from './Task';
-import AddTaskInput from './AddTaskInput';
 import media from '../media/media';
 
 

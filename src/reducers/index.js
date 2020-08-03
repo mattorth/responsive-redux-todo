@@ -1,4 +1,3 @@
-import React from 'react';
 import { ADD_TASK, TOGGLE_COMPLETED, REMOVE_TASK } from '../actions/index';
 
 const initialState = {

@@ -1,5 +1,3 @@
-import React from 'react';
-
 export const ADD_TASK = 'ADD_TASK';        // action type
 export const TOGGLE_COMPLETED = 'TOGGLE_COMPLETED';  // action type
 export const REMOVE_TASK = 'REMOVE_TASK'; // action type
