@@ -17,7 +17,7 @@ width: 100%;
 
 ${media.laptop`
 flex-direction: row;
-justifycontent: space-around;
+justifycontent: space-between;
 `}
 `
 

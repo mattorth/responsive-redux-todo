@@ -13,6 +13,10 @@ margin: auto;
 ${media.tablet`
 margin-left: 2rem;
 `}
+
+${media.laptop`
+margin-left: 2.5%;
+`}
 `
 const TaskInput = styled.input`
 border-radius: 4px;
