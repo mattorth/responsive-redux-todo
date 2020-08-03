@@ -49,8 +49,8 @@ function Task(props) {
         <TaskHolder>
             <TaskDescription>{props.task.description}</TaskDescription>
             <ButtonHolder>
-                <SpanButton onClick={toggleCompleted}><span role="img">✅</span></SpanButton>
-                <SpanButton onClick={removeTask}><span role="img">❌</span></SpanButton>
+                <SpanButton onClick={toggleCompleted}><span role="img" aria-label="Toggle">✅</span></SpanButton>
+                <SpanButton onClick={removeTask}><span role="img" aria-label="Delete">❌</span></SpanButton>
             </ButtonHolder>
 
         </TaskHolder>
