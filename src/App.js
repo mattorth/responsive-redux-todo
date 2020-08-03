@@ -1,25 +1,36 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import TaskList from './components/TaskList';
+import styled from 'styled-components';
+import CompletedList from './components/CompletedList'
+import NavBar from './components/NavBar';
+import media from './media/media';
+import AddTaskInput from './components/AddTaskInput';
+
+const AppHolder = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+margin: 2rem auto;
+background-color: blue;
+width: 100%;
+
+${media.laptop`
+flex-direction: row;
+justifycontent: space-around;
+`}
+`
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <NavBar />
+      <AddTaskInput />
+      <AppHolder>
+        <TaskList />
+        <CompletedList />
+      </AppHolder>
+    </>
   );
 }
 
