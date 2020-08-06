@@ -6,7 +6,6 @@ export const EDIT_TASK = 'EDIT_TASK';
 let nextTaskId = 0;
 
 export function addTask(newTask) {
-    console.log(newTask);
     return {
         type: ADD_TASK,
         payload: newTask,
@@ -15,7 +14,6 @@ export function addTask(newTask) {
 }
 
 export function toggleCompleted(task) {
-    console.log(task);
     return {
         type: TOGGLE_COMPLETED,
         payload: task
@@ -23,7 +21,6 @@ export function toggleCompleted(task) {
 }
 
 export function removeTask(task) {
-    console.log(task);
     return {
         type: REMOVE_TASK,
         payload: task
@@ -31,7 +28,6 @@ export function removeTask(task) {
 }
 
 export function editTask(task) {
-    console.log(task);
     return {
         type: EDIT_TASK,
         payload: task

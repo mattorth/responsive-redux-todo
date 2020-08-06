@@ -43,12 +43,10 @@ function Task(props) {
     const [ activeEdit, setActiveEdit ] = useState(false);
 
     const toggleCompleted = e => {
-        console.log(props.task);
         props.toggleCompleted(props.task);
     }
 
     const removeTask = e => {
-        console.log(props.task);
         props.removeTask(props.task);
     }
 
@@ -59,7 +57,6 @@ function Task(props) {
     const setActive = e => {
         e.preventDefault();
         setActiveEdit(!activeEdit);
-        console.log(updatedTask);
     }
 
     const HandleKeyPress = e => {
