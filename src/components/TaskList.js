@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
 import Task, { TaskDescription } from './Task';
-import { toggleCompleted, removeTask } from '../actions/index'
+import { toggleCompleted, removeTask, editTask } from '../actions/index'
 import styled from 'styled-components';
 import { TaskHolder } from './Task';
 import media from '../media/media';
@@ -46,14 +46,16 @@ function TaskList(props) {
         setTodo(props.taskList.filter(task => {
             return task.completed === false;
         }))
-    }, [props.taskList])
+    }, [props.taskList]);
+
+
 
     return (
         <TaskListHolder>
             <ToDoHeading>To-Do</ToDoHeading>
             {todo.length ? (
                 todo.map(task => (
-                    <Task key={task.id} task={task} toggleCompleted={props.toggleCompleted} removeTask={props.removeTask} />
+                    <Task key={task.id} task={task} toggleCompleted={props.toggleCompleted} removeTask={props.removeTask} editTask={props.editTask} />
                 ))
             ) : (
                 <TaskHolder><TaskDescription>Looks like you're all caught up!</TaskDescription></TaskHolder>
@@ -68,4 +70,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, {toggleCompleted, removeTask})(TaskList)
+export default connect(mapStateToProps, {toggleCompleted, removeTask, editTask})(TaskList)

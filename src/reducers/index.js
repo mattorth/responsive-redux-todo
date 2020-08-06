@@ -1,4 +1,4 @@
-import { ADD_TASK, TOGGLE_COMPLETED, REMOVE_TASK } from '../actions/index';
+import { ADD_TASK, TOGGLE_COMPLETED, REMOVE_TASK, EDIT_TASK } from '../actions/index';
 
 const initialState = {
     taskList: []
@@ -34,6 +34,15 @@ function reducer(state = initialState, action) {
                     (task.id !== action.payload.id)
                     )
             }
+            case EDIT_TASK:
+                return {
+                    ...state,
+                    taskList: state.taskList.map(task =>
+                        (task.id === action.payload.id)
+                        ? {...task, description: action.payload.description}
+                        : task
+                        )
+                }
 
         default:
             return state;

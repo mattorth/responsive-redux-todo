@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 export const TaskHolder = styled.div`
@@ -32,8 +32,15 @@ export const TaskDescription = styled.p`
 padding-left: 5px;
 font-size: 1.3rem;
 `
+const EditInput = styled.input`
+padding-left: 5px;
+font-size: 1.3rem;
+`
 
 function Task(props) {
+
+    const [ updatedTask, setUpdatedTask ] = useState(props.task.description);
+    const [ activeEdit, setActiveEdit ] = useState(false);
 
     const toggleCompleted = e => {
         console.log(props.task);
@@ -45,9 +52,28 @@ function Task(props) {
         props.removeTask(props.task);
     }
 
+    const HandleChange = e => {
+        setUpdatedTask(e.target.value);
+    }
+
+    const setActive = e => {
+        e.preventDefault();
+        setActiveEdit(!activeEdit);
+        console.log(updatedTask);
+    }
+
+    const HandleKeyPress = e => {
+        if(e.key === "Enter") {
+            props.editTask({...props.task, description: updatedTask});
+            setActiveEdit(false);
+        }
+    }
+
     return (
         <TaskHolder>
-            <TaskDescription>{props.task.description}</TaskDescription>
+            {activeEdit ? <EditInput value={updatedTask} type="text" name="updatedTask" onChange={HandleChange} onKeyPress={HandleKeyPress} />
+            : <TaskDescription onClick={setActive}>{props.task.description}</TaskDescription>
+            }
             <ButtonHolder>
                 <SpanButton onClick={toggleCompleted}><span role="img" aria-label="Toggle">✅</span></SpanButton>
                 <SpanButton onClick={removeTask}><span role="img" aria-label="Delete">❌</span></SpanButton>
